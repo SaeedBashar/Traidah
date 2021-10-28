@@ -6,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { AdminrouteProtectService } from './services/routeProtect/adminroute-protect.service';
+import { AuthGuardService } from './services/routeProtect/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -20,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: "order-history",
-    component: OrderHistoryComponent
+    component: OrderHistoryComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: "cart",
@@ -28,11 +31,13 @@ const routes: Routes = [
   },
   {
     path: "admin/manage-products",
-    component: AdminManageProductsComponent
+    component: AdminManageProductsComponent,
+    canActivate: [AuthGuardService, AdminrouteProtectService]
   },
   {
     path: "admin/manage-orders",
-    component: AdminManageOrdersComponent
+    component: AdminManageOrdersComponent,
+    canActivate: [AuthGuardService, AdminrouteProtectService]
   }
 ];
 

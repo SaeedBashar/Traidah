@@ -12,6 +12,9 @@ import { LoginComponent } from './components/login/login.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { LoggedUserService } from './services/logged-user.service';
+import { AuthGuardService } from './services/routeProtect/auth-guard.service';
+import { AdminrouteProtectService } from './services/routeProtect/adminroute-protect.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoggedUserService, 
+    AuthGuardService, 
+    AdminrouteProtectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
