@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
 import { AdminManageOrdersComponent } from './components/admin-manage-orders/admin-manage-orders.component';
 import { AdminManageProductsComponent } from './components/admin-manage-products/admin-manage-products.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,6 +33,16 @@ const routes: Routes = [
   {
     path: "admin/manage-products",
     component: AdminManageProductsComponent,
+    canActivate: [AuthGuardService, AdminrouteProtectService]
+  },
+  {
+    path: "admin/add-product/:id",
+    component: AdminAddProductComponent,
+    canActivate: [AuthGuardService, AdminrouteProtectService]
+  },
+  {
+    path: "admin/add-product",
+    component: AdminAddProductComponent,
     canActivate: [AuthGuardService, AdminrouteProtectService]
   },
   {
