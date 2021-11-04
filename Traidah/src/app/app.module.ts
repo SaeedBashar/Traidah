@@ -21,6 +21,7 @@ import { AdminrouteProtectService } from './services/routeProtect/adminroute-pro
 import { AuthGuardService } from './services/routeProtect/auth-guard.service';
 import { ProductsFilterComponent } from './components/products/products-filter/products-filter.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
+import { UserService } from './services/customer/user.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProductCardComponent } from './components/products/product-card/product
     LoggedUserService, 
     AuthGuardService, 
     AdminrouteProtectService,
-    GetDataService
+    GetDataService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
